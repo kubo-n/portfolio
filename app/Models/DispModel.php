@@ -18,20 +18,20 @@ class DispModel extends Model
          //入力データ登録
         $id = DB::table('recipe_header')->insertGetId(
             ['title' => $input['title'], 'amount' => $input['amount'], 'ingredientss' => $input['ingredients'],
-            'memo' => $input['memo'],  'picture' => $file_name, 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()]
+            'memo' => $input['memo'],  'picture' => $file_name]
         );
 
         DB::table('recipe_detail')->insert([
-            ['header_id' => $id, 'number' => '1', 'step' => $input['recipe1'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '2', 'step' => $input['recipe2'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '3', 'step' => $input['recipe3'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '4', 'step' => $input['recipe4'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '5', 'step' => $input['recipe5'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '6', 'step' => $input['recipe6'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '7', 'step' => $input['recipe7'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '8', 'step' => $input['recipe8'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '9', 'step' => $input['recipe9'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()],
-            ['header_id' => $id, 'number' => '10', 'step' => $input['recipe10'], 'inserted_date' => Carbon::now(),'updated_date' => Carbon::now()]
+            ['header_id' => $id, 'number' => '1', 'step' => $input['recipe1']],
+            ['header_id' => $id, 'number' => '2', 'step' => $input['recipe2']],
+            ['header_id' => $id, 'number' => '3', 'step' => $input['recipe3']],
+            ['header_id' => $id, 'number' => '4', 'step' => $input['recipe4']],
+            ['header_id' => $id, 'number' => '5', 'step' => $input['recipe5']],
+            ['header_id' => $id, 'number' => '6', 'step' => $input['recipe6']],
+            ['header_id' => $id, 'number' => '7', 'step' => $input['recipe7']],
+            ['header_id' => $id, 'number' => '8', 'step' => $input['recipe8']],
+            ['header_id' => $id, 'number' => '9', 'step' => $input['recipe9']],
+            ['header_id' => $id, 'number' => '10', 'step' => $input['recipe10']]
         ]);
 
         return $id;
@@ -64,68 +64,67 @@ class DispModel extends Model
        ->where('id', $id)
        ->update([
            'title' => $input['title'], 'amount' => $input['amount'], 'ingredientss' => $input['ingredients'],
-           'memo' => $input['memo'],  'picture' => $file_name,'updated_date' => Carbon::now()
-           ]);
+           'memo' => $input['memo'],  'picture' => $file_name]);
 
        DB::table('recipe_detail')
        ->where('header_id', $id)
        ->where('number','1')
        ->update([
-           'step' => $input['recipe1'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe1']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','2')
        ->update([
-           'step' => $input['recipe2'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe2']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','3')
        ->update([
-           'step' => $input['recipe3'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe3']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','4')
        ->update([
-           'step' => $input['recipe4'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe4']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','5')
        ->update([
-           'step' => $input['recipe5'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe5']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','6')
        ->update([
-           'step' => $input['recipe6'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe6']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','7')
        ->update([
-           'step' => $input['recipe7'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe7']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','8')
        ->update([
-           'step' => $input['recipe8'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe8']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','9')
        ->update([
-           'step' => $input['recipe9'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe9']
        ]);
        DB::table('recipe_detail')
        ->where('header_id', $input['id'])
        ->where('number','10')
        ->update([
-           'step' => $input['recipe10'], 'updated_date' => Carbon::now()
+           'step' => $input['recipe10']
        ]);
 
        return $id;
